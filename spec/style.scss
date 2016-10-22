@@ -1,0 +1,7 @@
+@import "../components/colors";
+@import "../components/globals";
+@import "../components/mixins";
+
+.app {
+  @include no-webkit-scrollbar;
+}
