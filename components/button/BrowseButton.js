@@ -6,7 +6,7 @@ import { BUTTON } from '../identifiers.js';
 import InjectFontIcon from '../font_icon/FontIcon.js';
 
 const factory = (FontIcon) => {
-  class Button extends Component {
+  class SimpleBrowseButton extends Component {
     static propTypes = {
       children: PropTypes.node,
       className: PropTypes.string,
@@ -46,6 +46,7 @@ const factory = (FontIcon) => {
       primary: false,
       secondary: false,
       tertiary: true,
+      raised: false
     };
 
     handleMouseUp = (event) => {
@@ -78,6 +79,16 @@ const factory = (FontIcon) => {
       };
     };
 
+    handleFileChange = (event) => {
+        const {
+            onChange,
+        } = this.props;
+
+        if (onChange) {
+            onChange(event);
+        }
+    };
+
     render = () => {
       const {
         children,
@@ -102,37 +113,37 @@ const factory = (FontIcon) => {
       const classes = classnames(theme.button, {
         [theme.floating]: floating,
         [theme.tertiary]: tertiary && !secondary && !primary,
-        [theme.secondary]: secondary,
-        [theme.primary]: primary,
+        [theme.secondary]: secondary && !tertiary && !primary,
+        [theme.primary]: primary && !tertiary && !secondary,
         [theme.mini]: mini,
         [theme.inverse]: inverse,
       }, className);
 
       const props = {
         ...others,
-        href,
-        ref: 'button',
+        ref: 'label',
         className: classes,
         disabled,
         onMouseUp: this.handleMouseUp,
         onMouseLeave: this.handleMouseLeave,
-        'data-react-zvui-framework': 'button',
+        'data-react-zvui-framework': 'label',
       };
 
       return React.createElement(
         element,
         props,
-        icon ? <FontIcon className={theme.icon} value={icon} /> : null,
-        label,
+        icon ? <FontIcon className={theme.icon} value={icon}/> : null,
+        <span>{label}</span>,
+        <input className={classes} type="file" onChange={this.handleFileChange}/>,
         children,
       );
     };
   }
 
-  return Button;
+  return SimpleBrowseButton;
 };
 
-const Button = factory(InjectFontIcon);
-export default themr(BUTTON)(Button);
-export { factory as buttonFactory };
-export { Button };
+const BrowseButton = factory(InjectFontIcon);
+export default themr(BUTTON)(BrowseButton);
+export { factory as browseButtonFactory };
+export { BrowseButton };

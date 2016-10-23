@@ -1,0 +1,142 @@
+@import "node_modules/tachyons-sass/tachyons";
+@import "../colors";
+@import "../globals";
+@import "../mixins";
+@import "./config";
+
+.button {
+  @extend .relative;
+  > input {
+    @extend .absolute;
+    @extend .z-0;
+    @extend .pa0;
+    @extend .ma0;
+    width: 0.1px;
+    height: 0.1px;
+    @extend .o-0;
+    @extend .overflow-hidden;
+  }
+}
+
+%button {
+  @include typo-button();
+  @extend .relative;
+  @extend .db;
+  height: $button-height;
+  @extend .flex-row;
+  @extend .content-center;
+  @extend .justify-center;
+  @extend .items-center;
+  @extend .tc;
+  @extend .no-underline;
+  @extend .nowrap;
+  @extend .pointer:hover;
+  @extend .outline-0;
+  @extend .bn;
+  @extend .fw6;
+  @extend .ba;
+  @extend .bw2;
+  @extend .b--transparent;
+  @extend .z-0;
+  background-color: transparent;
+  transition: background-color .2s $animation-curve-default, color .2s $animation-curve-default;
+  &::-moz-focus-inner {
+    @extend .bn;
+  }
+  > span:not([data-react-zvui-framework="tooltip"]) {
+    @extend .dib;
+    // line-height: $button-height;
+    @extend .v-top;
+  }
+  > svg {
+    @extend .dib;
+    width: 1em;
+    height: $button-height;
+    font-size: 120%;
+    @extend .v-top;
+    fill: currentColor;
+  }
+  > * {
+    pointer-events: none;
+  }
+  &[disabled] {
+    color: $button-disabled-text-color;
+    pointer-events: none;
+    cursor: auto;
+  }
+  &:before {
+    content: "";
+    @extend .absolute;
+    @extend .absolute--fill;
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: transform 0.3s $animation-curve-default;
+  }
+  &:hover {
+    &:before {
+      transform: scaleX(1);
+    }
+  }
+}
+
+%squared {
+  min-width: $button-squared-min-width;
+  @extend .dt--fixed;
+  @extend .pa3;
+  .icon {
+    font-size: 120%;
+    @extend .mr2;
+    vertical-align: middle !important;
+  }
+  > svg {
+    @extend .mr3;
+  }
+}
+
+%solid {
+  &[disabled] {
+    background-color: $button-disabled-background-color;
+  }
+}
+
+.button {
+  @extend %button;
+  @extend %squared;
+  @extend %solid;
+}
+
+.tertiary {
+  color: $button-tertiary-text-color;
+  border-color: $button-tertiary-color;
+  &:before {
+    background-color: $button-tertiary-color-hover;
+  }
+  &:hover {
+    color: $button-tertiary-text-color-hover;
+  }
+}
+
+.primary {
+  color: $button-primary-text-color;
+  border-color: $button-primary-color;
+  background-color: $button-primary-color;
+  &:hover {
+    border-color: $button-primary-color-hover;
+  }
+  &:before {
+    background-color: $button-primary-color-hover;
+  }
+}
+
+.secondary {
+  color: $button-primary-color;
+  border-color: $button-primary-color;
+  &:hover {
+    color: $button-primary-text-color;
+    border-color: $button-primary-color-hover;
+  }
+  &:before {
+    background-color: $button-primary-color-hover;
+  }
+}

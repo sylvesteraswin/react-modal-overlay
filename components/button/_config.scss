@@ -1,0 +1,14 @@
+$button-primary-text-color: $color-white !default;
+$button-primary-color: $color-primary !default;
+$button-primary-color-hover: $color-primary-dark !default;
+
+$button-tertiary-text-color: $color-tertiary !default;
+$button-tertiary-color: $color-tertiary !default;
+$button-tertiary-text-color-hover: $color-white !default;
+$button-tertiary-color-hover: $color-tertiary !default;
+
+$button-disabled-text-color: rgba($color-black, 0.26) !default;
+$button-disabled-background-color: rgba($color-black, 0.12) !default;
+
+$button-height: $unit * 4.6 !default;
+$button-squared-min-width: 9 * $unit !default;

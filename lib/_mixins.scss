@@ -180,7 +180,8 @@
 @mixin typo-button($color-contrast: false, $use-preferred: true) {
   @include typo-preferred-font($use-preferred);
   font-size: $unit * 1.4;
-  line-height: 1.5;
+  font-weight: 500;
+  line-height: 1;
   text-transform: uppercase;
   letter-spacing: 0;
 
