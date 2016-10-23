@@ -106,6 +106,14 @@
   @extend %solid;
 }
 
+.inline {
+  @extend .dib;
+  @extend .w-auto;
+  height: $button-height-inline;
+  padding: 3px 10px;
+  font-size: $unit;
+}
+
 .tertiary {
   color: $button-tertiary-text-color;
   border-color: $button-tertiary-color;

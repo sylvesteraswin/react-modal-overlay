@@ -25,6 +25,7 @@ const factory = (FontIcon) => {
       primary: PropTypes.bool,
       secondary: PropTypes.bool,
       tertiary: PropTypes.bool,
+      inline: PropTypes.bool,
       theme: PropTypes.shape({
         button: PropTypes.string,
         floating: PropTypes.string,
@@ -34,7 +35,8 @@ const factory = (FontIcon) => {
         primary: PropTypes.string,
         secondary: PropTypes.string,
         tertiary: PropTypes.string,
-        toggle: PropTypes.string
+        toggle: PropTypes.string,
+        inline: PropTypes.string,
       }),
       type: PropTypes.string,
     };
@@ -46,6 +48,7 @@ const factory = (FontIcon) => {
       primary: false,
       secondary: false,
       tertiary: true,
+      inline: false,
     };
 
     handleMouseUp = (event) => {
@@ -93,6 +96,7 @@ const factory = (FontIcon) => {
         tertiary,
         theme,
         disabled,
+        inline,
         ...others,
       } = this.props;
 
@@ -105,6 +109,7 @@ const factory = (FontIcon) => {
         [theme.secondary]: secondary,
         [theme.primary]: primary,
         [theme.mini]: mini,
+        [theme.inline]: inline,
         [theme.inverse]: inverse,
       }, className);
 

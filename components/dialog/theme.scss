@@ -1,0 +1,89 @@
+@import "node_modules/tachyons-sass/tachyons";
+@import "../colors";
+@import "../globals";
+@import "../mixins";
+@import "./config";
+
+.dialog {
+  @extend .flex;
+  @extend .flex-column;
+  max-width: 96vw;
+  max-height: 96vh;
+  box-shadow: $zdepth-shadow-5;
+  @extend .o-0;
+  background-color: $dialog-color-white;
+  transition-delay: $animation-delay;
+  transition-timing-function: $animation-curve-default;
+  transition-duration: $animation-duration;
+  transition-property: opacity, transform;
+  transform: translateY(-$dialog-translate-y);
+  @extend .dn;
+  &.active {
+    @extend .db;
+    @extend .o-100;
+    transform: translateY(0%);
+  }
+}
+
+.small {
+  width: 30vw;
+
+  @media screen and (max-width: $layout-breakpoint-sm-tablet) {
+    width: 50vw;
+  }
+
+  @media screen and (max-width: $layout-breakpoint-xs) {
+    width: 75vw;
+  }
+}
+
+.normal {
+  width: 50vw;
+
+  @media screen and (max-width: $layout-breakpoint-xs) {
+    width: 96vw;
+  }
+}
+
+.large {
+  width: 96vw;
+}
+
+.fullscreen {
+  width: 96vw;
+
+  @media screen and (max-width: $layout-breakpoint-xs) {
+    width: 100vw;
+    max-width: 100vw;
+    min-height: 100vh;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+}
+
+.title {
+  @include typo-title();
+  flex-grow: 0;
+  @extend .mb3;
+  color: $dialog-color-title;
+}
+
+.body {
+  flex-grow: 2;
+  @extend .pa4;
+  @extend .overflow-y-auto;
+  color: $color-text;
+}
+
+.navigation {
+  flex-grow: 0;
+  @extend .pt2;
+  @extend .pb4;
+  @extend .ph4;
+  @extend .tr;
+}
+
+.button {
+  min-width: 0;
+  @extend .ml3;
+}
