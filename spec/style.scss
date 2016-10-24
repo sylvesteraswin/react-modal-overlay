@@ -5,3 +5,17 @@
 .app {
   @include no-webkit-scrollbar;
 }
+
+.appbar {
+  display: flex;
+  > h1 {
+    flex-grow: 1;
+    font-size: 1.8 * $unit;
+    font-weight: bold;
+    color: #fff;
+    > small {
+      font-size: 1.8 * $unit;
+      font-weight: normal;
+    }
+  }
+}

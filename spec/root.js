@@ -2,6 +2,7 @@
 import '../components/commons.scss';
 import React from 'react';
 
+import AppBar from '../components/app_bar';
 import AppBarTest from './components/app_bar';
 import FontIcon from './components/font_icon';
 import Button from './components/button';
@@ -11,8 +12,15 @@ import Drawer from './components/drawer';
 
 import style from './style';
 
+const RootAppBar = () => (
+  <AppBar className={style.appbar}
+    leftIcon='code'
+    title={"React ZVUI Framework"} />
+);
+
 const Root = () => (
   <div className={style.app}>
+    <RootAppBar />
     <AppBarTest />
     <Button />
     <Link />
