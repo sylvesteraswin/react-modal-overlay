@@ -6,6 +6,7 @@ import FontIcon from './components/font_icon';
 import Button from './components/button';
 import Link from './components/link';
 import Dialog from './components/dialog';
+import Drawer from './components/drawer';
 
 import style from './style';
 
@@ -15,6 +16,7 @@ const Root = () => (
     <Link />
     <FontIcon />
     <Dialog />
+    <Drawer />
   </div>
 );
 

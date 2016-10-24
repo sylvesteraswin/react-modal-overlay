@@ -4,14 +4,7 @@ import { themr } from 'react-css-themr';
 import { OVERLAY } from '../identifiers.js';
 import Portal from '../hoc/Portal.js';
 
-import addEventListener from '../utils/add-event-listener.js';
-import removeEventListener from '../utils/remove-event-listener.js';
-
 class Overlay extends Component {
-  state = {
-    events: {},
-  };
-
   static propTypes = {
     active: PropTypes.bool,
     children: PropTypes.node,
@@ -31,60 +24,28 @@ class Overlay extends Component {
     invisible: false
   };
 
-  componentDidMount = () => {
-    const {
-      active,
-    } = this.props;
-
-    if (active) {
-      this.setState({
-        events: {
-          escKey: addEventListener(window, 'keydown', this.handleEscKey, this),
-        },
-      });
+  componentDidMount () {
+    if (this.props.active) {
+      document.body.addEventListener('keydown', this.handleEscKey);
       document.body.style.overflow = 'hidden';
     }
   }
 
-  componentWillUpdate = (nextProps) => {
-    const {
-      active,
-    } = this.props;
+  componentWillUpdate (nextProps) {
+    if (nextProps.active && !this.props.active) document.body.style.overflow = 'hidden';
+    if (!nextProps.active && this.props.active && !document.querySelectorAll('[data-react-zvui-framework="overlay"]')[1]) document.body.style.overflow = '';
+  }
 
-    if (nextProps.active && !active) {
-      document.body.style.overflow = 'hidden';
+  componentDidUpdate () {
+    if (this.props.active) {
+      document.body.addEventListener('keydown', this.handleEscKey);
     }
-    if (!nextProps.active && active && !document.querySelectorAll('[data-react-zvui-framework="overlay"]')[1]) {
-      document.body.style.overflow = '';
-    }
-  };
+  }
 
-  componentDidUpdate = () => {
-    const {
-      active,
-    } = this.props;
-
-    if (active) {
-      this.setState({
-        events: {
-          escKey: addEventListener(window, 'keydown', this.handleEscKey, this),
-        },
-      });
-    }
-  };
-
-  componentWillUnmount = () => {
-    const {
-      events: {
-        escKey,
-      },
-    } = this.props;
-    if (!document.querySelectorAll('[data-react-zvui-framework="overlay"]')[1]) {
-      document.body.style.overflow = '';
-    }
-
-    removeEventListener(escKey);
-  };
+  componentWillUnmount () {
+    if (!document.querySelectorAll('[data-react-zvui-framework="overlay"]')[1]) document.body.style.overflow = '';
+    document.body.removeEventListener('keydown', this.handleEscKey);
+  }
 
   handleEscKey = (e) => {
     if (this.props.active && this.props.onEscKeyDown && e.which === 27) {
@@ -92,30 +53,22 @@ class Overlay extends Component {
     }
   }
 
-  render = () => {
-    const {
-      active,
-      className,
-      children,
-      invisible,
-      onClick,
-      theme
-    } = this.props;
-
-    const classes = classnames(theme.overlay, {
+  render () {
+    const { active, className, children, invisible, onClick, theme } = this.props;
+    const _className = classnames(theme.overlay, {
       [theme.active]: active,
       [theme.invisible]: invisible
     }, className);
 
     return (
       <Portal>
-        <div className={classes} data-react-toolbox="overlay">
+        <div className={_className} data-react-zvui-framework="overlay">
           <div className={theme.backdrop} onClick={onClick} />
           {children}
         </div>
       </Portal>
     );
-  };
+  }
 }
 
 export default themr(OVERLAY)(Overlay);

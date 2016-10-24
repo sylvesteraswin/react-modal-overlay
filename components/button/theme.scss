@@ -148,3 +148,14 @@
     background-color: $button-primary-color-hover;
   }
 }
+
+.inverse {
+  background-color: $button-inverse-color;
+  border-color: transparent;
+  &:hover {
+    color: $button-tertiary-text-color;
+  }
+  &:before {
+    background-color: $button-inverse-color-hover;
+  }
+}

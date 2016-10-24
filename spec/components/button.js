@@ -53,6 +53,22 @@ const ButtonTest = () => (
           icon="add_shopping_cart"
           label="Tertiary Button" />
     </p>
+
+    <p
+      className="mv2">
+      <Button
+          inverse
+          href="http://www.google.com"
+          label="Inverse Link" />
+    </p>
+
+    <p
+      className="mv2">
+      <Button
+          inverse
+          icon="bookmark"
+          label="Inverse Button" />
+    </p>
   </section>
 );
 

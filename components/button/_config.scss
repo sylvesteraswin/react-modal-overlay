@@ -7,6 +7,9 @@ $button-tertiary-color: $color-tertiary !default;
 $button-tertiary-text-color-hover: $color-white !default;
 $button-tertiary-color-hover: $color-tertiary !default;
 
+$button-inverse-color: $color-white !default;
+$button-inverse-color-hover: $color-tertiary-contrast !default;
+
 $button-disabled-text-color: rgba($color-black, 0.26) !default;
 $button-disabled-background-color: rgba($color-black, 0.12) !default;
 

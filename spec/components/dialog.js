@@ -16,37 +16,38 @@ class DialogTest extends Component {
   };
 
   actions = [
-    { label: 'Disagree', inline: true, onClick: this.handleToggle },
-    { label: 'Agree', inline: true, onClick: this.handleToggle }
+    { label: 'Close', inverse: true, inline: true, onClick: this.handleToggle }
   ];
 
-  render = () => (
-    <section
-      className="pa3 pa5-ns">
-      <h1>Dialog</h1>
+  render = () => {
+    return (
+      <section
+        className="pa3 pa5-ns">
+        <h1>Dialog</h1>
 
-      <div
-        className="mv2">
-        <Button
-            primary
-            onClick={this.handleToggle}
-            icon="favorite_border"
-            label="Primary Button" />
-        <Dialog
-          actions={this.actions}
-          active={this.state.active}
-          type={this.state.type}
-          title="Hello World"
-          onOverlayClick={this.handleToggle}
-          onEscKeyDown={this.handleToggle}
-          >
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus autem, culpa cupiditate dolorem facilis harum iusto necessitatibus nemo non odit optio pariatur perspiciatis quae quaerat quisquam tempore ut velit voluptatum!
-          </p>
-        </Dialog>
-      </div>
-    </section>
-  );
+        <div
+          className="mv2">
+          <Button
+              primary
+              onClick={this.handleToggle}
+              icon="favorite_border"
+              label="Primary Button" />
+          <Dialog
+            actions={this.actions}
+            active={this.state.active}
+            type={this.state.type}
+            title="Hello World"
+            onOverlayClick={this.handleToggle}
+            onEscKeyDown={this.handleToggle}
+            >
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus autem, culpa cupiditate dolorem facilis harum iusto necessitatibus nemo non odit optio pariatur perspiciatis quae quaerat quisquam tempore ut velit voluptatum!
+            </p>
+          </Dialog>
+        </div>
+      </section>
+    );
+  };
 }
 
 export default DialogTest;

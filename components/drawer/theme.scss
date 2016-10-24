@@ -1,0 +1,81 @@
+@import "node_modules/tachyons-sass/tachyons";
+@import "../colors";
+@import "../globals";
+@import "../mixins";
+@import "./config";
+
+.drawer {
+  @include shadow-2dp();
+  @extend .absolute;
+  @extend .db;
+  color: $drawer-text-color;
+  background-color: $drawer-background-color;
+  transition-delay: 0s;
+  transition-timing-function: $animation-curve-default;
+  transition-duration: $animation-duration;
+  transition-property: transform;
+  transform-style: preserve-3d;
+  will-change: transform;
+  &.left,
+  &.right {
+    width: $drawer-width;
+    @extend .h-100;
+    @extend .overflow-x-hidden;
+    @extend .overflow-y-auto;
+    @extend .top-0;
+  }
+  &.top,
+  &.bottom {
+    @extend .w-100;
+    height: $drawer-height;
+    @extend .overflow-y-hidden;
+    @extend .overflow-x-auto;
+    @extend .left-0;
+  }
+  &.active {
+    pointer-events: all;
+    transition-delay: $animation-delay;
+    &.left,
+    &.right {
+      transform: translateX(0);
+    }
+
+    &.top,
+    &.bottom {
+      transform: translateY(0);
+    }
+  }
+  &.right {
+    @extend .bl;
+    @extend .right-0;
+    border-right-color: $drawer-border-color;
+    &:not(.active) {
+      transform: translateX(100%);
+    }
+  }
+  &.left {
+    @extend .left-0;
+    @extend .br;
+    border-left-color: $drawer-border-color;
+    &:not(.active) {
+      transform: translateX(- 100%);
+    }
+  }
+  &.top {
+    @extend .top-0;
+    @extend .bt;
+    border-top-color: $drawer-border-color;
+    &:not(.active) {
+      transform: translateY(-100%);
+    }
+  }
+  &.bottom {
+    @extend .right-0;
+    @extend .bottom-0;
+    @extend .bb;
+    border-bottom-color: $drawer-border-color;
+    &:not(.active) {
+      transform: translateY(100%);
+    }
+  }
+}

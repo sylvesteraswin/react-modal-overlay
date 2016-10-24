@@ -40,6 +40,11 @@ $z-index-normal: 1 !default;
 $z-index-low: -100 !default;
 $z-index-lower: -200 !default;
 
+//-- Shadows
+$shadow-key-umbra-opacity: 0.2 !default;
+$shadow-key-penumbra-opacity: 0.14 !default;
+$shadow-ambient-shadow-opacity: 0.12 !default;
+
 //-- Depth Shadows
 $zdepth-shadow-1: 0 1px 6px rgba(0,0,0,.12), 0 1px 4px rgba(0,0,0,.24);
 $zdepth-shadow-2: 0 3px 10px rgba(0,0,0,.16), 0 3px 10px rgba(0,0,0,.23);
