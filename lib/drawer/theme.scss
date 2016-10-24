@@ -1,0 +1,84 @@
+@import "../colors";
+@import "../globals";
+@import "../mixins";
+@import "./config";
+
+.drawer {
+  @include shadow-16dp();
+  position: absolute;
+  display: block;
+  color: $drawer-text-color;
+  background-color: $drawer-background-color;
+  transition-delay: 0s;
+  transition-timing-function: $animation-curve-default;
+  transition-duration: $animation-duration;
+  transition-property: transform;
+  transform-style: preserve-3d;
+  will-change: transform;
+  &.left,
+  &.right {
+    width: $drawer-width;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    top: 0;
+  }
+  &.top,
+  &.bottom {
+    width: 100%;
+    height: $drawer-height;
+    overflow-y: hidden;
+    overflow-x: auto;
+    left: 0;
+  }
+  &.active {
+    pointer-events: all;
+    transition-delay: $animation-delay;
+    &.left,
+    &.right {
+      transform: translateX(0);
+    }
+
+    &.top,
+    &.bottom {
+      transform: translateY(0);
+    }
+  }
+  &.right {
+    border-left-style:solid;
+    border-left-width:1px;
+    right: 0;
+    border-right-color: $drawer-border-color;
+    &:not(.active) {
+      transform: translateX(100%);
+    }
+  }
+  &.left {
+    left: 0;
+    border-right-style:solid;
+    border-right-width:1px;
+    border-left-color: $drawer-border-color;
+    &:not(.active) {
+      transform: translateX(- 100%);
+    }
+  }
+  &.top {
+    top: 0;
+    border-bottom-style:solid;
+    border-bottom-width:1px;
+    border-bottom-color: $drawer-border-color;
+    &:not(.active) {
+      transform: translateY(-100%);
+    }
+  }
+  &.bottom {
+    right: 0;
+    bottom: 0;
+    border-top-style:solid;
+    border-top-width:1px;
+    border-top-color: $drawer-border-color;
+    &:not(.active) {
+      transform: translateY(100%);
+    }
+  }
+}

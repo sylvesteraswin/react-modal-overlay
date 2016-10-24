@@ -16,6 +16,7 @@
   transition-duration: $animation-duration;
   transition-property: opacity, transform;
   transform: translateY(-$dialog-translate-y);
+  display: none;
   &.active {
     display: block;
     opacity: 1;

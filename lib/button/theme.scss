@@ -58,7 +58,6 @@
   }
   &[disabled] {
     color: $button-disabled-text-color;
-    border-color: $button-disabled-background-color;
     pointer-events: none;
     cursor: auto;
   }
@@ -104,51 +103,8 @@
 
 .button {
   @extend %button;
-  @extend %solid;
   @extend %squared;
-}
-
-.toggle,
-.floating {
-  @extend %button;
-  display: inline-block;
-  border-radius: 50%;
-  &:before {
-    top: -1px;
-    right: -1px;
-    bottom: -1px;
-    left: -1px;
-    border-radius: 50%;
-    transform-origin: 50%;
-    transform: scale(0);
-  }
-  &:hover {
-    &:before {
-      transform: scale(1);
-    }
-  }
-}
-
-.toggle {
-  width: $button-height;
-  background-color: transparent;
-  border: none;
-  > .icon, svg {
-    font-size: $button-toggle-font-size;
-    line-height: $button-height;
-    vertical-align: top;
-  }
-}
-
-.floating {
   @extend %solid;
-  width: $button-floating-height;
-  height: $button-floating-height;
-  font-size: $button-floating-font-size;
-  box-shadow: $zdepth-shadow-1;
-  .icon {
-    line-height: $button-floating-height;
-  }
 }
 
 .inline {

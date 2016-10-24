@@ -46,7 +46,6 @@ const factory = (FontIcon) => {
       primary: false,
       secondary: false,
       tertiary: true,
-      raised: false
     };
 
     handleMouseUp = (event) => {
@@ -100,11 +99,11 @@ const factory = (FontIcon) => {
       const element = href ? 'a' : 'button';
 
 
-      const classes = classnames(theme.button, {
+      const classes = classnames(theme.toggle, {
         [theme.floating]: floating,
         [theme.tertiary]: tertiary && !secondary && !primary,
-        [theme.secondary]: secondary && !tertiary && !primary,
-        [theme.primary]: primary && !tertiary && !secondary,
+        [theme.secondary]: secondary,
+        [theme.primary]: primary,
         [theme.mini]: mini,
         [theme.inverse]: inverse,
       }, className);

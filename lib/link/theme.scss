@@ -1,0 +1,30 @@
+@import "../colors";
+@import "../globals";
+
+.icon {
+  margin-right: $unit;
+  font-size: 1.8 * $unit;
+}
+
+.link {
+  position: relative;
+  line-height: 1.5;
+  cursor: pointer;
+  color: $color-text;
+  transition: opacity $animation-duration $animation-curve-default;
+  &:hover,
+  &:active {
+    opacity: .6;
+  }
+  > * {
+    vertical-align: middle;
+  }
+  > abbr {
+    text-transform:capitalize
+  }
+  > small {
+    text-align: center;
+    margin-left: .8 * $unit;
+    font-size: $font-size-tiny;
+  }
+}

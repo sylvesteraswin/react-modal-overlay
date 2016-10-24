@@ -103,7 +103,8 @@ const factory = (FontIcon) => {
       const element = href ? 'a' : 'button';
 
 
-      const classes = classnames(theme.button, {
+      const classes = classnames({
+        [theme.button]: !floating,
         [theme.floating]: floating,
         [theme.tertiary]: tertiary && !secondary && !primary,
         [theme.secondary]: secondary,

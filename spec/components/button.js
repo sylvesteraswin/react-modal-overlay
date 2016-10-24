@@ -1,6 +1,7 @@
 import React from 'react';
 import {
-  Button
+  Button,
+  IconButton,
 } from '../../components/button';
 
 const ButtonTest = () => (
@@ -8,6 +9,7 @@ const ButtonTest = () => (
     className="pa3 pa5-ns">
     <h1>Buttons</h1>
 
+    <h4>Link & Buttons</h4>
     <p
       className="mv2">
       <Button
@@ -69,6 +71,27 @@ const ButtonTest = () => (
           icon="bookmark"
           label="Inverse Button" />
     </p>
+
+    <h4>Icon Buttons</h4>
+    <p
+      className="mv3 tc">
+      <IconButton className="mr2" icon='favorite' primary />
+      <IconButton className="mr2" icon='favorite' secondary />
+      <IconButton className="mr2" icon='favorite' />
+      <IconButton className="mr2" icon='favorite' inverse />
+      <IconButton className="mr2" icon='favorite' disabled />
+    </p>
+
+    <h4>Floating Buttons</h4>
+    <p
+      className="mv3 tc">
+      <Button className="mr3" icon='add' floating primary />
+      <Button className="mr3" icon='view_headline' floating secondary />
+      <Button className="mr3" icon='clear' floating />
+      <Button className="mr3" icon='keyboard_arrow_left' floating inverse />
+    </p>
+
+
   </section>
 );
 
