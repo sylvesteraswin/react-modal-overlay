@@ -1,26 +1,25 @@
-@import "node_modules/tachyons-sass/tachyons";
 @import "../colors";
 @import "../globals";
 @import "../mixins";
 @import "./config";
 
 .dialog {
-  @extend .flex;
-  @extend .flex-column;
+  display: flex;
+  flex-direction: column;
   max-width: 96vw;
   max-height: 96vh;
   box-shadow: $zdepth-shadow-5;
-  @extend .o-0;
+  opacity: 0;
   background-color: $dialog-color-white;
   transition-delay: $animation-delay;
   transition-timing-function: $animation-curve-default;
   transition-duration: $animation-duration;
   transition-property: opacity, transform;
   transform: translateY(-$dialog-translate-y);
-  @extend .dn;
+  display: none;
   &.active {
-    @extend .db;
-    @extend .o-100;
+    display: block;
+    opacity: 1;
     transform: translateY(0%);
   }
 }
@@ -64,26 +63,26 @@
 .title {
   @include typo-title();
   flex-grow: 0;
-  @extend .mb3;
+  margin-bottom: 1.6 * $unit;
   color: $dialog-color-title;
 }
 
 .body {
   flex-grow: 2;
-  @extend .pa4;
-  @extend .overflow-y-auto;
+  padding: $dialog-content-padding;
+  overflow-y: auto;
   color: $color-text;
 }
 
 .navigation {
   flex-grow: 0;
-  @extend .pt2;
-  @extend .pb4;
-  @extend .ph4;
-  @extend .tr;
+  padding: $dialog-navigation-padding;
+  text-align: right;
 }
 
 .button {
   min-width: 0;
-  @extend .ml3;
+  padding-right: $dialog-navigation-padding;
+  padding-left: $dialog-navigation-padding;
+  margin-left: $dialog-navigation-padding;
 }

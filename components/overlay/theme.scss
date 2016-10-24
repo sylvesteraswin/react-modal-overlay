@@ -1,19 +1,21 @@
-@import "node_modules/tachyons-sass/tachyons";
 @import "../colors";
 @import "../globals";
 @import "./config";
 
 .overlay {
-  @extend .fixed;
-  @extend .absolute--fill;
+  position: fixed;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
   z-index: $z-index-highest;
-  @extend .flex;
-  @extend .flex-row;
-  @extend .content-center;
-  @extend .justify-center;
-  @extend .items-center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
   width: 100vw;
-  @extend .vh-100;
+  height: 100vh;
   pointer-events: none;
   &.invisible {
     > *:not(.backdrop) {
@@ -23,12 +25,15 @@
 }
 
 .backdrop {
-  @extend .absolute;
-  @extend .absolute--fill;
-  @extend .h-100;
-  @extend .w-100;
+  position: absolute;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  width: 100%;
+  height: 100%;
   background-color: $overlay-color;
-  @extend .o-0;
+  opacity: 0;
   transition-timing-function: $animation-curve-default;
   transition-duration: $animation-duration;
   transition-property: opacity;
@@ -37,6 +42,6 @@
 .active {
   pointer-events: all;
   > .backdrop {
-    @extend .o-60;
+    opacity: .6;
   }
 }

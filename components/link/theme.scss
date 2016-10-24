@@ -1,4 +1,3 @@
-@import "node_modules/tachyons-sass/tachyons";
 @import "../colors";
 @import "../globals";
 
@@ -8,28 +7,23 @@
 }
 
 .link {
-  @extend .relative;
-  // @extend .flex;
-  // @extend .flex-row;
-  // @extend .content-center;
-  // @extend .justify-center;
-  // @extend .items-center;
+  position: relative;
   line-height: 1.5;
-  @extend .pointer:hover;
+  cursor: pointer;
   color: $color-text;
   transition: opacity $animation-duration $animation-curve-default;
   &:hover,
   &:active {
-    @extend .o-50;
+    opacity: .6;
   }
   > * {
-    @extend .v-mid;
+    vertical-align: middle;
   }
   > abbr {
-    @extend .ttc;
+    text-transform:capitalize
   }
   > small {
-    @extend .tc;
+    text-align: center;
     margin-left: .8 * $unit;
     font-size: $font-size-tiny;
   }

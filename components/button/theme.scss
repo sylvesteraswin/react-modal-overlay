@@ -1,59 +1,56 @@
-@import "node_modules/tachyons-sass/tachyons";
 @import "../colors";
 @import "../globals";
 @import "../mixins";
 @import "./config";
 
 .button {
-  @extend .relative;
+  position: relative;
   > input {
-    @extend .absolute;
-    @extend .z-0;
-    @extend .pa0;
-    @extend .ma0;
+    position: absolute;
+    z-index: 0;
+    padding: 0;
+    margin: 0;
     width: 0.1px;
     height: 0.1px;
-    @extend .o-0;
-    @extend .overflow-hidden;
+    opacity: 0;
+    overflow: hidden;
   }
 }
 
 %button {
   @include typo-button();
-  @extend .relative;
-  @extend .db;
+  position: relative;
+  display: block;
   height: $button-height;
-  @extend .flex-row;
-  @extend .content-center;
-  @extend .justify-center;
-  @extend .items-center;
-  @extend .tc;
-  @extend .no-underline;
-  @extend .nowrap;
-  @extend .pointer:hover;
-  @extend .outline-0;
-  @extend .bn;
-  @extend .fw6;
-  @extend .ba;
-  @extend .bw2;
-  @extend .b--transparent;
-  @extend .z-0;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  border-style:solid;
+  border-width:2px;
+  font-weight:600;
+  border-color: transparent;
+  z-index: 0;
   background-color: transparent;
   transition: background-color .2s $animation-curve-default, color .2s $animation-curve-default;
   &::-moz-focus-inner {
-    @extend .bn;
+    display: block;
   }
   > span:not([data-react-zvui-framework="tooltip"]) {
-    @extend .dib;
+    display: inline-block;
     // line-height: $button-height;
-    @extend .v-top;
+    vertical-align: top;
   }
   > svg {
-    @extend .dib;
+    display: inline-block;
     width: 1em;
     height: $button-height;
     font-size: 120%;
-    @extend .v-top;
+    vertical-align: top;
     fill: currentColor;
   }
   > * {
@@ -66,8 +63,11 @@
   }
   &:before {
     content: "";
-    @extend .absolute;
-    @extend .absolute--fill;
+    position: absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
     z-index: -1;
     transform: scaleX(0);
     transform-origin: 0 50%;
@@ -82,15 +82,16 @@
 
 %squared {
   min-width: $button-squared-min-width;
-  @extend .dt--fixed;
-  @extend .pa3;
+  table-layout:fixed;
+  width:100%;
+  padding: $button-squared-padding;
   .icon {
     font-size: 120%;
-    @extend .mr2;
+    margin-right: .5 * $unit;
     vertical-align: middle !important;
   }
   > svg {
-    @extend .mr3;
+    margin-right: .5 * $unit;
   }
 }
 
@@ -107,8 +108,8 @@
 }
 
 .inline {
-  @extend .dib;
-  @extend .w-auto;
+  display: inline-block;
+  width: auto;
   height: $button-height-inline;
   padding: 3px 10px;
   font-size: $unit;
