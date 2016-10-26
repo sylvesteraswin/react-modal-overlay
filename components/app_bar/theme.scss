@@ -11,13 +11,12 @@
   color: $appbar-contrast;
   background: $appbar-color;
   z-index: $z-index-high;
-  box-shadow: 0 2px 5px rgba(0,0,0,.26);
 
-  @media screen and (max-width: $layout-breakpoint-xxs) and (orientation: portrait) {
+  @media #{$layout-till-phone} and (orientation: portrait) {
     height: $appbar-height-m-portrait;
   }
 
-  @media screen and (max-width: $layout-breakpoint-xs) and (orientation: landscape) {
+  @media #{$layout-till-phablet} and (orientation: landscape) {
     height: $appbar-height-m-landscape;
   }
 
@@ -35,13 +34,12 @@
 
   .title {
     flex-grow: 1;
-    font-size: 1.8 * $unit;
-    font-weight: bold;
-    color: $color-text;
-    > small {
-      font-size: 1.8 * $unit;
-      font-weight: normal;
-    }
+    margin-bottom: 0;
+  }
+
+  .leftIcon,
+  .rightIcon {
+    color: $appbar-icon-color;
   }
 
   .leftIcon {

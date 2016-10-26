@@ -4,6 +4,7 @@ import React from 'react';
 
 import AppBar from '../components/app_bar';
 import AppBarTest from './components/app_bar';
+import TypographyTest from './components/typography';
 import FontIcon from './components/font_icon';
 import Button from './components/button';
 import Link from './components/link';
@@ -21,6 +22,7 @@ const RootAppBar = () => (
 const Root = () => (
   <div className={style.app}>
     <RootAppBar />
+    <TypographyTest />
     <AppBarTest />
     <Button />
     <Link />

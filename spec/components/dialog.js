@@ -23,7 +23,7 @@ class DialogTest extends Component {
     return (
       <section
         className="pa3 pa5-ns">
-        <h1>Dialog</h1>
+        <h5>Dialog</h5>
 
         <div
           className="mv2">

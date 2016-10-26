@@ -4,15 +4,20 @@ import Link from '../../components/link';
 const LinkTest = () => (
   <section
     className="pa3 pa5-ns">
-    <h1>Links</h1>
+    <h5>Links</h5>
+
+    <p
+      className="mv2">
+      <Link
+        label="Add Review" />
+    </p>
 
     <p
       className="mv2">
       <Link
         active
-        icon="thumb_up"
-        href="http://www.google.com"
-        label="Primary Link" />
+        icon="arrow_back"
+        label="Back" />
     </p>
   </section>
 );

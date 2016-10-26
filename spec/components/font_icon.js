@@ -4,7 +4,7 @@ import FontIcon from '../../components/font_icon';
 const FontIconTest = () => (
   <section
     className="pa3 pa5-ns">
-    <h1>Font Icons</h1>
+    <h5>Font Icons</h5>
 
     <FontIcon value="done"/>
     <FontIcon value="error"/>

@@ -30,7 +30,7 @@ class DrawerTest extends React.Component {
     return (
       <section
         className="pa3 pa5-ns">
-        <h1>Drawer</h1>
+        <h5>Drawer</h5>
 
         <Drawer active={this.state.leftActive} onOverlayClick={this.handleToggleLeft}>
           <div

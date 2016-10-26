@@ -1,5 +1,6 @@
 $appbar-color: $color-primary !default;
-$appbar-contrast: $color-primary-dark !default;
+$appbar-contrast: $color-white !default;
+$appbar-icon-color: $appbar-contrast !default;
 $appbar-title-total-distance: 8 * $unit !default;
 $appbar-height: 6.4 * $unit !default;
 $appbar-height-m-portrait: 5.6 * $unit !default;

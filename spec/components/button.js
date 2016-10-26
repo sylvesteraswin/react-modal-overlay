@@ -7,9 +7,9 @@ import {
 const ButtonTest = () => (
   <section
     className="pa3 pa5-ns">
-    <h1>Buttons</h1>
+    <h5>Buttons</h5>
 
-    <h4>Link & Buttons</h4>
+    <h6>Link & Buttons</h6>
     <p
       className="mv2">
       <Button
@@ -72,7 +72,7 @@ const ButtonTest = () => (
           label="Inverse Button" />
     </p>
 
-    <h4>Icon Buttons</h4>
+    <h6>Icon Buttons</h6>
     <p
       className="mv3 tc">
       <IconButton className="mr2" icon='favorite' primary />
@@ -82,7 +82,7 @@ const ButtonTest = () => (
       <IconButton className="mr2" icon='favorite' disabled />
     </p>
 
-    <h4>Floating Buttons</h4>
+    <h6>Floating Buttons</h6>
     <p
       className="mv3 tc">
       <Button className="mr3" icon='add' floating primary />

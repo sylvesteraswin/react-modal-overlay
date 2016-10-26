@@ -60,10 +60,8 @@
 }
 
 .title {
-  @include typo-title();
+  @include typo-title-caption();
   flex-grow: 0;
-  margin-bottom: 1.6 * $unit;
-  color: $dialog-color-title;
 }
 
 .body {

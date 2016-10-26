@@ -4,7 +4,7 @@ import AppBar from '../../components/app_bar';
 const AppBarTest = () => (
   <section
     className="pa3 pa5-ns">
-    <h1>AppBar</h1>
+    <h5>AppBar</h5>
 
     <div
       className="mv3">

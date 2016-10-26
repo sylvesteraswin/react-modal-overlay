@@ -31,7 +31,10 @@ const factory = (IconButton) => {
         rightIcon: PropTypes.string,
         title: PropTypes.string,
       }),
-      title: PropTypes.string,
+      title: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.element,
+      ]),
     };
 
     static defaultProps = {
@@ -157,8 +160,8 @@ const factory = (IconButton) => {
           }
           {
             title &&
-            <h1
-              className={theme.title}>{title}</h1>
+            <h4
+              className={theme.title}>{title}</h4>
           }
           {children}
           {

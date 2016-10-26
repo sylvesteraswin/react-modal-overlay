@@ -1,6 +1,6 @@
 // -- Color
 $color-background: $color-white !default;
-$color-text: $palette-deep-black !default;
+$color-text: $palette-light-black !default;
 $color-text-secondary: $palette-deep-black-contrast !default;
 
 
@@ -66,3 +66,8 @@ $layout-breakpoint-lg: 1280px !default;
 $layout-breakpoint-xl: 1440px !default;
 $layout-breakpoint-xxl: 1600px !default;
 $layout-breakpoint-xxxl: 1920px !default;
+
+$layout-till-phone: "only screen and (max-width: #{$layout-breakpoint-xxs})";
+$layout-till-phablet: "only screen and (max-width: #{$layout-breakpoint-xs})";
+$layout-till-tablet: "only screen and (max-width: #{$layout-breakpoint-sm-tablet})";
+$layout-till-monitor: "only screen and (max-width: #{$layout-breakpoint-lg-tablet})";
