@@ -134,6 +134,18 @@
   }
 }
 
+@mixin typo-small($color-contrast: false, $use-preferred: false) {
+  @include typo-preferred-font($use-preferred);
+  font-size: $unit * 1;
+  line-height: 1.4;
+  font-weight: normal;
+  letter-spacing: $unit * .05;
+
+  @if $color-contrast {
+    opacity: .87;
+  }
+}
+
 @mixin typo-label($color-contrast: false, $use-preferred: false) {
   @include typo-preferred-font($use-preferred);
   font-size: $unit * 1.4;

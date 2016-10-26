@@ -389,6 +389,7 @@ const factory = () => {
          lazy,
          onLoad,
          onError,
+         theme,
          ...others,
        } = this.props;
 

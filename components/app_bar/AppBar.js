@@ -158,12 +158,12 @@ const factory = (IconButton) => {
               onClick={onLeftIconClick}
               icon={leftIcon} />
           }
+          {children}
           {
             title &&
             <h4
               className={theme.title}>{title}</h4>
           }
-          {children}
           {
             rightIcon &&
             <IconButton

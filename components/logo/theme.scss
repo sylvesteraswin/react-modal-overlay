@@ -1,7 +1,7 @@
 @import "../colors";
 @import "../globals";
 
-.icon {
-  margin-right: $unit;
-  font-size: 1.8 * $unit;
+.logo {
+  display: inline-block;
+  max-width: $unit * 14.3;
 }

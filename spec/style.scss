@@ -16,6 +16,15 @@ $offset: 1.8 * $unit;
     background-color: $color-background;
     box-shadow: $zdepth-shadow-1;
   }
+}
 
+.appbar {
+  h4 {
+    font-weight: normal;
+    letter-spacing: 0.01rem;
+  }
+}
 
+.header_logo {
+  margin-right: 5px;
 }

@@ -1,9 +1,9 @@
 import { themr } from 'react-css-themr';
-import { LINK } from '../identifiers.js';
-import { Link } from './Link.js';
+import { LOGO } from '../identifiers.js';
+import { Logo } from './Logo.js';
 import theme from './theme.scss';
 
-const ThemedLink = themr(LINK, theme)(Link);
+const ThemedLogo = themr(LOGO, theme)(Logo);
 
-export default ThemedLink;
-export { ThemedLink as Link };
+export default ThemedLogo;
+export { ThemedLogo as Logo };

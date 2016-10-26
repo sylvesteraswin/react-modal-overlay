@@ -1,60 +1,49 @@
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 import { themr } from 'react-css-themr';
-import { LINK } from '../identifiers.js';
-import FontIcon from '../font_icon/FontIcon.js';
+import { LOGO } from '../identifiers.js';
+import Image from '../image/Image.js';
 
-const Link = ({
-  active,
+const Logo = ({
   children,
+  src,
+  srcSet = null,
   className,
-  count,
-  icon,
-  label,
+  alt,
   theme,
   ...others
 }) => {
-  const classes = classnames(theme.link, {
-    [theme.active]: active,
-  }, className);
+  const classes = classnames(theme.logo, className);
 
   const props = {
     ...others,
-    'data-react-zvui-framework': 'link',
+    'data-react-zvui-framework': 'logo',
     className: classes,
   };
 
   return React.createElement(
-    'a',
+    'div',
     props,
-    icon ? <FontIcon className={theme.icon} value={icon} /> : null,
-    label ? <abbr>{label}</abbr> : null,
-    (count && parseInt(count) !== 0) ? <small>{count}</small> : null,
+    src ? <Image src={src} srcSet={srcSet} /> : null,
     children,
   );
 };
 
-Link.propTypes = {
-  active: PropTypes.bool,
+Logo.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  count: PropTypes.number,
-  icon: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element,
-  ]),
-  label: PropTypes.string,
+  alt: PropTypes.string,
+  src: PropTypes.string,
+  srcSet: PropTypes.string,
   theme: PropTypes.shape({
-    active: PropTypes.string,
-    icon: PropTypes.string,
     link: PropTypes.string,
+    image: PropTypes.image,
   }),
 };
 
-Link.defaultProps = {
-  active: false,
+Logo.defaultProps = {
   className: '',
 };
 
-export default themr(LINK)(Link);
-export { Link };
+export default themr(LOGO)(Logo);
+export { Logo };

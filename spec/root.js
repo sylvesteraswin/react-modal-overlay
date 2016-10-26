@@ -3,22 +3,31 @@ import '../components/commons.scss';
 import React from 'react';
 
 import AppBar from '../components/app_bar';
+import Logo from '../components/logo';
+
 import AppBarTest from './components/app_bar';
 import TypographyTest from './components/typography';
-import FontIcon from './components/font_icon';
-import Button from './components/button';
-import Image from './components/image';
-import Link from './components/link';
-import Dialog from './components/dialog';
-import Drawer from './components/drawer';
+import FontIconTest from './components/font_icon';
+import ButtonTest from './components/button';
+import ImageTest from './components/image';
+import LogoTest from './components/logo';
+import LinkTest from './components/link';
+import DialogTest from './components/dialog';
+import DrawerTest from './components/drawer';
 
 import style from './style';
 
 const RootAppBar = () => (
-  <AppBar className={style.appbar}
+  <AppBar
+    className={style.appbar}
     fixed
     leftIcon='view_headline'
-    title={"React ZVUI Framework"} />
+    title={"Framework"}>
+    <Logo
+      className={style.header_logo}
+      src="https://dl.dropboxusercontent.com/u/8725581/zvui-framework-logo.png"
+      alt="Add Review" />
+  </AppBar>
 );
 
 const Root = () => (
@@ -26,12 +35,13 @@ const Root = () => (
     <RootAppBar />
     <TypographyTest />
     <AppBarTest />
-    <Button />
-    <Image />
-    <Link />
-    <FontIcon />
-    <Dialog />
-    <Drawer />
+    <ButtonTest />
+    <ImageTest />
+    <LogoTest />
+    <LinkTest />
+    <FontIconTest />
+    <DialogTest />
+    <DrawerTest />
   </div>
 );
 

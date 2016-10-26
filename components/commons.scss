@@ -114,6 +114,10 @@ p {
   @include typo-p;
 }
 
+small {
+  @include typo-small;
+}
+
 label {
   @include typo-label;
 }
