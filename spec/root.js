@@ -7,6 +7,7 @@ import AppBarTest from './components/app_bar';
 import TypographyTest from './components/typography';
 import FontIcon from './components/font_icon';
 import Button from './components/button';
+import Image from './components/image';
 import Link from './components/link';
 import Dialog from './components/dialog';
 import Drawer from './components/drawer';
@@ -26,6 +27,7 @@ const Root = () => (
     <TypographyTest />
     <AppBarTest />
     <Button />
+    <Image />
     <Link />
     <FontIcon />
     <Dialog />

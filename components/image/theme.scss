@@ -1,0 +1,14 @@
+@import "../colors";
+@import "../globals";
+
+
+.image,
+.loading {
+  position: relative;
+}
+
+.visible {
+  max-width:100% !important;
+  height:auto;
+  display:block;
+}

@@ -75,6 +75,7 @@
     transition: transform 0.3s $animation-curve-default;
   }
   &:hover {
+    opacity: 1;
     &:before {
       transform: scaleX(1);
     }
