@@ -21,7 +21,7 @@
   @include typo-button();
   position: relative;
   display: block;
-  height: $button-height;
+  min-height: $button-height;
   display: flex;
   align-items: center;
   align-content: center;
@@ -42,13 +42,12 @@
   }
   > span:not([data-react-zvui-framework="tooltip"]) {
     display: inline-block;
-    // line-height: $button-height;
     vertical-align: top;
   }
   > svg {
     display: inline-block;
     width: 1em;
-    height: $button-height;
+    min-height: $button-height;
     font-size: 120%;
     vertical-align: top;
     fill: currentColor;
@@ -144,7 +143,7 @@
 .floating {
   @extend %solid;
   width: $button-floating-height;
-  height: $button-floating-height;
+  min-height: $button-floating-height;
   font-size: $button-floating-font-size;
   box-shadow: $zdepth-shadow-1;
   .icon {
@@ -155,7 +154,7 @@
 .inline {
   display: inline-block;
   width: auto;
-  height: $button-height-inline;
+  min-height: $button-height-inline;
   padding: 3px 10px;
   font-size: $unit;
 }

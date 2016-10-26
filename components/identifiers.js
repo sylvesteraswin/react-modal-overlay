@@ -1,5 +1,6 @@
 export const APP_BAR = 'zvui-app-bar';
 export const BUTTON = 'zvui-button';
+export const ELLIPSIS = 'zvui-ellipsis';
 export const IMAGE = 'zvui-image';
 export const LINK = 'zvui-link';
 export const LOGO = 'zvui-logo';
