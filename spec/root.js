@@ -15,7 +15,8 @@ import style from './style';
 
 const RootAppBar = () => (
   <AppBar className={style.appbar}
-    leftIcon='code'
+    fixed
+    leftIcon='view_headline'
     title={"React ZVUI Framework"} />
 );
 
