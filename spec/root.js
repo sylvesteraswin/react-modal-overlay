@@ -6,6 +6,7 @@ import AppBar from '../components/app_bar';
 import Logo from '../components/logo';
 
 import AppBarTest from './components/app_bar';
+import EllipsisTest from './components/ellipsis';
 import TypographyTest from './components/typography';
 import FontIconTest from './components/font_icon';
 import ButtonTest from './components/button';
@@ -34,6 +35,7 @@ const Root = () => (
   <div className={style.app}>
     <RootAppBar />
     <TypographyTest />
+    <EllipsisTest />
     <AppBarTest />
     <ButtonTest />
     <ImageTest />

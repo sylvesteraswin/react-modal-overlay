@@ -2,6 +2,7 @@ import './utils/polyfills'; // Import polyfills for IE11
 
 export AppBar from './app_bar';
 export * from './button';
+export Ellipsis from './ellipsis';
 export Image from './image';
 export Logo from './logo';
 export Link from './link';

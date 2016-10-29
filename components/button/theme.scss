@@ -37,6 +37,9 @@
   z-index: 0;
   background-color: transparent;
   transition: background-color .2s $animation-curve-default, color .2s $animation-curve-default;
+  overflow: hidden; /* to hide anything that doesn't fit in the containing element. */
+  white-space: nowrap; /* to make sure the line doesn't break when it is longer than the containing div. */
+  text-overflow: ellipsis; /* to do what you want. */
   &::-moz-focus-inner {
     display: block;
   }

@@ -20,11 +20,11 @@ app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, './www/index.html'));
 });
 
-app.listen(8081, '0.0.0.0', function (err) {
+app.listen(4040, '0.0.0.0', function (err) {
   if (err) {
     console.log(err);
     return;
   }
 
-  console.log('Listening at http://0.0.0.0:8081');
+  console.log('Listening at http://0.0.0.0:4040');
 });

@@ -4,8 +4,9 @@ import { themr } from 'react-css-themr';
 import { BUTTON } from '../identifiers.js';
 
 import InjectFontIcon from '../font_icon/FontIcon.js';
+import InjectEllipsis from '../ellipsis/Ellipsis.js';
 
-const factory = (FontIcon) => {
+const factory = (FontIcon, Ellipsis) => {
   class Button extends Component {
     static propTypes = {
       children: PropTypes.node,
@@ -13,6 +14,8 @@ const factory = (FontIcon) => {
       disabled: PropTypes.bool,
       floating: PropTypes.bool,
       href: PropTypes.string,
+      ellipsis: PropTypes.bool,
+      length: PropTypes.number,
       icon: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.element
@@ -49,6 +52,8 @@ const factory = (FontIcon) => {
       secondary: false,
       tertiary: true,
       inline: false,
+      ellipsis: false,
+      length: 10,
     };
 
     handleMouseUp = (event) => {
@@ -97,6 +102,8 @@ const factory = (FontIcon) => {
         theme,
         disabled,
         inline,
+        ellipsis,
+        length,
         ...others,
       } = this.props;
 
@@ -129,7 +136,7 @@ const factory = (FontIcon) => {
         element,
         props,
         icon ? <FontIcon className={theme.icon} value={icon} /> : null,
-        label,
+        ellipsis ? <Ellipsis length={length}>{label}</Ellipsis> : label,
         children,
       );
     };
@@ -138,7 +145,7 @@ const factory = (FontIcon) => {
   return Button;
 };
 
-const Button = factory(InjectFontIcon);
+const Button = factory(InjectFontIcon, InjectEllipsis);
 export default themr(BUTTON)(Button);
 export { factory as buttonFactory };
 export { Button };

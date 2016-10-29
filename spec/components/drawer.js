@@ -63,6 +63,8 @@ class DrawerTest extends React.Component {
                   secondary
                   onClick={this.handleToggleLeft}
                   icon="favorite"
+                  ellipsis={true}
+                  length={16}
                   label="Left Drawer" />
             </div>
             <div
@@ -70,6 +72,8 @@ class DrawerTest extends React.Component {
               <Button
                   onClick={this.handleToggleRight}
                   icon="star"
+                  ellipsis={true}
+                  length={16}
                   label="Right Drawer" />
             </div>
           </article>
@@ -85,6 +89,8 @@ class DrawerTest extends React.Component {
                   primary
                   onClick={this.handleToggleTop}
                   icon="favorite"
+                  ellipsis={true}
+                  length={16}
                   label="Top Drawer" />
             </div>
             <div
@@ -93,6 +99,8 @@ class DrawerTest extends React.Component {
                   inverse
                   onClick={this.handleToggleBottom}
                   icon="star"
+                  ellipsis={true}
+                  length={16}
                   label="Bottom Drawer" />
             </div>
           </article>

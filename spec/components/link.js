@@ -19,6 +19,15 @@ const LinkTest = () => (
         icon="arrow_back"
         label="Back" />
     </p>
+
+    <p
+      className="mv2">
+      <Link
+        active
+        icon="phone_iphone"
+        ellipsis={true}
+        label="Apple iPhone 7 (Jet Black, 256 GB)" />
+    </p>
   </section>
 );
 

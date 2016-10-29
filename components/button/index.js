@@ -4,10 +4,11 @@ import { buttonFactory } from './Button.js';
 // import { browseButtonFactory } from './BrowseButton.js';
 import { iconButtonFactory } from './IconButton.js';
 import FontIcon from '../font_icon/FontIcon.js';
+import Ellipsis from '../ellipsis/Ellipsis.js';
 
 import theme from './theme.scss';
 
-const Button = buttonFactory(FontIcon);
+const Button = buttonFactory(FontIcon, Ellipsis);
 const IconButton = iconButtonFactory(FontIcon);
 // const BrowseButton = browseButtonFactory(FontIcon);
 
