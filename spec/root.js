@@ -15,6 +15,7 @@ import LogoTest from './components/logo';
 import LinkTest from './components/link';
 import DialogTest from './components/dialog';
 import DrawerTest from './components/drawer';
+import TooltipTest from './components/tooltip';
 
 import style from './style';
 
@@ -44,6 +45,7 @@ const Root = () => (
     <FontIconTest />
     <DialogTest />
     <DrawerTest />
+    <TooltipTest />
   </div>
 );
 

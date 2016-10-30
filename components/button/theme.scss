@@ -200,6 +200,7 @@
 .inverse {
   background-color: $button-inverse-color;
   border-color: transparent;
+  border-width: 0;
   &:hover {
     color: $button-tertiary-text-color;
   }

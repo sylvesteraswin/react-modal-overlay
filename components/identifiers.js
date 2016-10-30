@@ -7,3 +7,4 @@ export const LOGO = 'zvui-logo';
 export const DIALOG = 'zvui-dialog';
 export const OVERLAY = 'zvui-overlay';
 export const DRAWER = 'zvui-drawer';
+export const TOOLTIP = 'zvui-tooltip';
