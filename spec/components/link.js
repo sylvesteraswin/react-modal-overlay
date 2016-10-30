@@ -15,7 +15,6 @@ const LinkTest = () => (
     <p
       className="mv2">
       <Link
-        active
         icon="arrow_back"
         label="Back" />
     </p>
