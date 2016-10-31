@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 import { themr } from 'react-css-themr';
 import { IMAGE } from '../identifiers.js';
+import ActivableRenderer from '../hoc/ActivableRenderer.js';
 
 import addEvent from '../utils/add-event-listener.js';
 import removeEvent from '../utils/remove-event-listener.js';
@@ -22,6 +23,12 @@ const factory = () => {
       lazy: PropTypes.bool,
       placeholderSrc: PropTypes.string,
       lazyOffset: PropTypes.number,
+      aspectRatio: PropTypes.oneOf([
+        'square',
+        '4x3',
+        '16x9',
+        '19x10',
+      ]),
       crossorigin: PropTypes.oneOf([
         'anonymous',
         'use-credentials',
@@ -32,6 +39,12 @@ const factory = () => {
         image: PropTypes.string,
         loading: PropTypes.string,
         visible: PropTypes.string,
+        wrapper: PropTypes.string,
+        aspectRatio: PropTypes.string,
+        'aspectRatio--square': PropTypes.string,
+        'aspectRatio--4x3': PropTypes.string,
+        'aspectRatio-16x9': PropTypes.string,
+        'aspectRatio-19x10': PropTypes.string,
       }),
     };
 
@@ -43,6 +56,7 @@ const factory = () => {
       lazyOffset: 0,
       width: 100,
       height: 100,
+      aspectRatio: 'square',
       placeholderSrc: 'data:image/gif;base64,R0lGODlhEAAJAIAAAP///wAAACH5BAEAAAAALAAAAAAQAAkAAAIKhI+py+0Po5yUFQA7',
     };
 
@@ -165,12 +179,12 @@ const factory = () => {
           lazyOffset,
         } = this.props;
 
-        const placeholder = this.refs[`${IMAGE}-placeholder`];
-        if (placeholder && this._checkElementInViewport(placeholder, this._getViewportHeight(), lazyOffset)) {
-          this.setState({
-            viewLoaded: true,
-          });
-        }
+        // const placeholder = this.placeHolder;
+        // if (placeholder && this._checkElementInViewport(placeholder, this._getViewportHeight(), lazyOffset)) {
+        //   this.setState({
+        //     viewLoaded: true,
+        //   });
+        // }
       }, DEBOUNCE_TIME);
     };
 
@@ -310,6 +324,33 @@ const factory = () => {
       });
      };
 
+     commonLayoutPattern = (image) => {
+       const {
+         theme,
+         aspectRatio,
+       } = this.props;
+
+       if (!image) {
+         return null;
+       }
+
+       const ActiveRender = ActivableRenderer()(image);
+
+       return (
+         <figure
+           className={theme.wrapper}>
+           <div
+             className={theme.aspectRatio}>
+             <div
+               className={classnames(theme[`aspectRatio--${aspectRatio}`])}></div>
+             <div className={theme.image}>
+               {image}
+             </div>
+           </div>
+         </figure>
+       );
+     };
+
      renderPlaceholder = () => {
        const {
          width,
@@ -318,6 +359,7 @@ const factory = () => {
          theme,
          className,
          lazy,
+         aspectRatio,
          ...others,
        } = this.props;
 
@@ -325,23 +367,26 @@ const factory = () => {
          viewLoaded,
        } = this.state;
 
-       const classes = classnames(theme.image, {
+       const classes = classnames({
          [theme.loading]: (lazy && !viewLoaded),
        });
 
-       const props = {
+       const imageProps = {
          width,
          height,
-         ref: `${IMAGE}-placeholder`,
+         ref: i => this.placeHolder = i,
          'data-react-zvui-framework': 'image',
          className: classes,
          src: placeholderSrc,
+         active: !this.state.visible
        };
 
-       return React.createElement(
+       const image = React.createElement(
          'img',
-         props,
+         imageProps,
        );
+
+       return this.commonLayoutPattern(image);
      };
 
      renderNative = () => {
@@ -352,6 +397,7 @@ const factory = () => {
           className,
           lazy,
           srcSet,
+          aspectRatio,
           src: fallbackSrc,
           ...others,
         } = this.props;
@@ -365,7 +411,7 @@ const factory = () => {
           url: src = fallbackSrc,
         } = variations[0] || {};
 
-        const classes = classnames(theme.image, {
+        const classes = classnames({
           [theme.visible]: viewLoaded,
         });
 
@@ -378,10 +424,12 @@ const factory = () => {
           src,
         };
 
-        return React.createElement(
+        const image = React.createElement(
           'img',
           props,
         );
+
+        return this.commonLayoutPattern(image);
      };
 
      render = () => {
@@ -390,6 +438,7 @@ const factory = () => {
          onLoad,
          onError,
          theme,
+         aspectRatio,
          ...others,
        } = this.props;
 
@@ -414,14 +463,16 @@ const factory = () => {
          ...others,
          onLoad,
          onError,
-         src: this._matchImage,
+         src: this._matchImage(),
          className: classes,
        };
 
-       return React.createElement(
+       const image = React.createElement(
          'img',
          this.props,
        );
+
+       return this.commonLayoutPattern(image);
      };
   }
 
@@ -430,4 +481,5 @@ const factory = () => {
 
 const Image = factory();
 export default themr(IMAGE)(Image);
+export { factory as imageFactory };
 export { Image };

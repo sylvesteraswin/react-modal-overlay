@@ -1,49 +1,60 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import classnames from 'classnames';
 import { themr } from 'react-css-themr';
 import { LOGO } from '../identifiers.js';
-import Image from '../image/Image.js';
+import themeImage from '../image/theme.scss';
 
-const Logo = ({
-  children,
-  src,
-  srcSet = null,
-  className,
-  alt,
-  theme,
-  ...others
-}) => {
-  const classes = classnames(theme.logo, className);
+import InjectImage from '../image/Image.js';
 
-  const props = {
-    ...others,
-    'data-react-zvui-framework': 'logo',
-    className: classes,
-  };
+const factory = (Image) => {
+  class Logo extends Component {
+    static propTypes = {
+      children: PropTypes.node,
+      className: PropTypes.string,
+      alt: PropTypes.string,
+      src: PropTypes.string,
+      srcSet: PropTypes.string,
+      theme: PropTypes.shape({
+        link: PropTypes.string,
+        image: PropTypes.image,
+      }),
+    };
 
-  return React.createElement(
-    'div',
-    props,
-    src ? <Image src={src} srcSet={srcSet} /> : null,
-    children,
-  );
+    static defaultProps = {
+      className: '',
+    };
+
+    render = () => {
+      const {
+        children,
+        src,
+        srcSet = null,
+        className,
+        alt,
+        theme,
+        ...others
+      } = this.props;
+
+      const classes = classnames(theme.logo, className);
+
+      const props = {
+        ...others,
+        'data-react-zvui-framework': 'logo',
+        className: classes,
+      };
+
+      return React.createElement(
+        'div',
+        props,
+        src ? <Image src={src} srcSet={srcSet} theme={themeImage} /> : null,
+        children,
+      );
+    };
+  }
+  return Logo;
 };
 
-Logo.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  alt: PropTypes.string,
-  src: PropTypes.string,
-  srcSet: PropTypes.string,
-  theme: PropTypes.shape({
-    link: PropTypes.string,
-    image: PropTypes.image,
-  }),
-};
-
-Logo.defaultProps = {
-  className: '',
-};
-
+const Logo = factory(InjectImage);
 export default themr(LOGO)(Logo);
+export { factory as logoFactory };
 export { Logo };

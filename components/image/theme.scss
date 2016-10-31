@@ -1,10 +1,98 @@
 @import "../colors";
 @import "../globals";
+@import "../mixins";
+@import "./config";
 
 
-.image,
 .loading {
   position: relative;
+}
+
+.wrapper {
+  background-color: $image-placeholder-loading-background;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  user-select: auto;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+.aspectRatio {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+
+  &--square {
+    padding-top: 100%;
+  }
+  &--4x3 {
+    padding-top: 75%;
+  }
+  &--16x9 {
+    padding-top: 56.25%;
+  }
+  &--19x10 {
+    padding-top: 66.66%;
+  }
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.loading {
+  width: $image-placeholder-loading;
+  height: $image-placeholder-loading;
+  border-radius: 50%;
+  border: $image-placeholder-loading-border-width solid transparent;
+  border-color: $image-placeholder-loading-border;
+  border-top-color: $image-placeholder-loading-border-spinner;
+  animation: spinner ($animation-duration * 2) infinite $animation-curve-fast-out-linear-in;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%);
+  @-webkit-keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  @-moz-keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  @-o-keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 }
 
 .visible {
