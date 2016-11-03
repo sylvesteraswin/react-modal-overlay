@@ -15,7 +15,7 @@ const ImageTest = () => (
       className="mv2 tc">
       <Image
         srcSet={SRC_SET.join(',')}
-        aspectRatio="19x10"
+        aspectRatio="6x4"
         src="https://c4.staticflickr.com/2/1625/26256221835_060c07acc5_n.jpg" />
     </div>
 

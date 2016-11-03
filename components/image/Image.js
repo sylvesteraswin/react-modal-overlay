@@ -17,18 +17,22 @@ const factory = () => {
       className: PropTypes.string,
       sizes: PropTypes.string,
       alt: PropTypes.string,
-      width: PropTypes.number,
-      height: PropTypes.number,
       fade: PropTypes.bool,
       lazy: PropTypes.bool,
+      loadingAnimation: PropTypes.bool,
       placeholderSrc: PropTypes.string,
       lazyOffset: PropTypes.number,
       aspectRatio: PropTypes.oneOf([
         'square',
+        '3x4',
+        '4x6',
+        '5x7',
+        '8x10',
         '4x3',
-        '16x9',
-        '19x10',
-      ]),
+        '6x4',
+        '7x5',
+        '10x8',
+    ]),
       crossorigin: PropTypes.oneOf([
         'anonymous',
         'use-credentials',
@@ -37,14 +41,17 @@ const factory = () => {
       onError: PropTypes.func,
       theme: PropTypes.shape({
         image: PropTypes.string,
+        media: PropTypes.string,
+        loaded: PropTypes.string,
         loading: PropTypes.string,
+        blur: PropTypes.sting,
         visible: PropTypes.string,
         wrapper: PropTypes.string,
         aspectRatio: PropTypes.string,
         'aspectRatio--square': PropTypes.string,
-        'aspectRatio--4x3': PropTypes.string,
-        'aspectRatio-16x9': PropTypes.string,
-        'aspectRatio-19x10': PropTypes.string,
+        'aspectRatio--3x4': PropTypes.string,
+        'aspectRatio-4x6': PropTypes.string,
+        'aspectRatio-5x7': PropTypes.string,
       }),
     };
 
@@ -54,8 +61,7 @@ const factory = () => {
       srcSet: '',
       lazy: true,
       lazyOffset: 0,
-      width: 100,
-      height: 100,
+      loadingAnimation: true,
       aspectRatio: 'square',
       placeholderSrc: 'data:image/gif;base64,R0lGODlhEAAJAIAAAP///wAAACH5BAEAAAAALAAAAAAQAAkAAAIKhI+py+0Po5yUFQA7',
     };
@@ -66,6 +72,7 @@ const factory = () => {
       pixelRatio: 0,
       events: {},
       viewLoaded: false,
+      imageLoaded: false,
     };
 
     componentWillMount = () => {
@@ -179,12 +186,12 @@ const factory = () => {
           lazyOffset,
         } = this.props;
 
-        // const placeholder = this.placeHolder;
-        // if (placeholder && this._checkElementInViewport(placeholder, this._getViewportHeight(), lazyOffset)) {
-        //   this.setState({
-        //     viewLoaded: true,
-        //   });
-        // }
+        const placeholder = this.placeHolder;
+        if (placeholder && this._checkElementInViewport(placeholder, this._getViewportHeight(), lazyOffset)) {
+          this.setState({
+            viewLoaded: true,
+          });
+        }
       }, DEBOUNCE_TIME);
     };
 
@@ -245,7 +252,7 @@ const factory = () => {
 
       // current perfectly matches target but prev does not or
       // prev is less than target but current is the same or better
-      if ((currentDelta === 0 && prevDelta !== 0) || (prevDelta < 0 && currentColor >= 0)) {
+      if ((currentDelta === 0 && prevDelta !== 0) || (prevDelta < 0 && currentDelta >= 0)) {
         return current;
       }
 
@@ -324,17 +331,38 @@ const factory = () => {
       });
      };
 
-     commonLayoutPattern = (image) => {
+     _onMainImageLoad = (e) => {
+       const {
+         onLoad,
+       } = this.props;
+
+       const {
+         imageLoaded
+       } = this.state;
+
+       if (imageLoaded) {
+         return false;
+       }
+
+       this.setState({
+         imageLoaded: true,
+       }, () => {
+         onLoad.call(this, e);
+       });
+     };
+
+     commonLayoutPattern = (loading, loaded) => {
        const {
          theme,
          aspectRatio,
        } = this.props;
 
-       if (!image) {
+       if (!loading) {
          return null;
        }
 
-       const ActiveRender = ActivableRenderer()(image);
+       ActivableRenderer()(loading);
+       ActivableRenderer()(loaded);
 
        return (
          <figure
@@ -344,7 +372,8 @@ const factory = () => {
              <div
                className={classnames(theme[`aspectRatio--${aspectRatio}`])}></div>
              <div className={theme.image}>
-               {image}
+               {loading}
+               {loaded}
              </div>
            </div>
          </figure>
@@ -353,8 +382,6 @@ const factory = () => {
 
      renderPlaceholder = () => {
        const {
-         width,
-         height,
          placeholderSrc,
          theme,
          className,
@@ -371,22 +398,19 @@ const factory = () => {
          [theme.loading]: (lazy && !viewLoaded),
        });
 
-       const imageProps = {
-         width,
-         height,
+       const loadingImageProps = {
          ref: i => this.placeHolder = i,
          'data-react-zvui-framework': 'image',
          className: classes,
          src: placeholderSrc,
-         active: !this.state.visible
        };
 
-       const image = React.createElement(
+       const loadingImage = React.createElement(
          'img',
-         imageProps,
+         loadingImageProps,
        );
 
-       return this.commonLayoutPattern(image);
+       return this.commonLayoutPattern(loadingImage);
      };
 
      renderNative = () => {
@@ -396,40 +420,60 @@ const factory = () => {
           theme,
           className,
           lazy,
-          srcSet,
+          loadingAnimation,
           aspectRatio,
-          src: fallbackSrc,
+          src,
           ...others,
         } = this.props;
 
         const {
           viewLoaded,
           variations,
+          imageLoaded,
         } = this.state;
 
-        const {
-          url: src = fallbackSrc,
-        } = variations[0] || {};
+        const largeImg = this._matchImage();
 
-        const classes = classnames({
-          [theme.visible]: viewLoaded,
+        //////////////////////////////////////////////////
+
+        const classes_loading = classnames(theme.image, {
+          [theme.blur]: viewLoaded && loadingAnimation,
         });
 
-        const props = {
+
+        const loadingImageProps = {
           'data-react-zvui-framework': 'image',
-          className: classes,
-          onLoad,
-          onError,
-          srcSet,
+          className: classes_loading,
           src,
         };
 
-        const image = React.createElement(
+        const loadingImage = React.createElement(
           'img',
-          props,
+          loadingImageProps,
         );
 
-        return this.commonLayoutPattern(image);
+        //////////////////////////////////////////////////
+
+        const classes_loaded = classnames(theme.image, theme.media, {
+          [theme.loaded]: imageLoaded,
+        });
+
+        const loadedImageProps = {
+          className: classes_loaded,
+          'data-react-zvui-framework': 'image',
+          onLoad: this._onMainImageLoad,
+          src: largeImg,
+          onError,
+        }
+
+        const loadedImage = React.createElement(
+          'img',
+          loadedImageProps,
+        );
+
+        //////////////////////////////////////////////////
+
+        return this.commonLayoutPattern(loadingImage, loadedImage);
      };
 
      render = () => {
@@ -451,28 +495,7 @@ const factory = () => {
          return this.renderPlaceholder();
        }
 
-       if (nativeSupport) {
-         return this.renderNative();
-       }
-
-       const classes = classnames(theme.image, {
-         [theme.visible]: viewLoaded,
-       });
-
-       const props = {
-         ...others,
-         onLoad,
-         onError,
-         src: this._matchImage(),
-         className: classes,
-       };
-
-       const image = React.createElement(
-         'img',
-         this.props,
-       );
-
-       return this.commonLayoutPattern(image);
+       return this.renderNative();
      };
   }
 
