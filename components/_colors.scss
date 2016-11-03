@@ -1,11 +1,32 @@
+// Primary colors;
+$palatte-black: #1A1A1A;
+$palatte-orange: #FF6900;
+$palatte-orange-dark: #E75915;
+$palatte-red-flag: #CE3535;
+$palatte-green-flag: #5AA180;
+$palatte-blue-flag: #6D98B5;
+
+// Secondary Colors;
+$palatte-pastel-blue: #B4C6D5;
+$palatte-pastel-coral: #EF998B;
+$palatte-pastel-green: #B5CFC3;
+$palatte-pastel-yellow: #EFE0B0;
+
+// Greyscale colors
+$palatte-darker-grey: #666666;
+$palatte-medium-grey: #999999;
+$palatte-light-grey: #DDDDDD;
+$palatte-almost-white: #F3F3F3;
+$palatte-white: #FFFFFF;
+
 $palette-light-black: #1a1a1a;
 
 $palette-deep-orange-light: rgba(255, 238, 214, 1);
-$palette-deep-orange: rgb(255,105,0);
-$palette-deep-orange-contrast: rgb(230, 96,0);
+$palette-deep-orange: $palatte-orange;
+$palette-deep-orange-contrast: $palatte-orange-dark;
 
-$palette-deep-black: rgb(64,64,64);
-$palette-deep-black-contrast: rgb(221, 221, 221);
+$palette-deep-black: $palatte-darker-grey;
+$palette-deep-black-contrast: $palatte-light-grey;
 
-$color-black: rgb(0,0,0);
-$color-white: rgb(255,255,255);
+$color-black: $palatte-black;
+$color-white: $palatte-white;
