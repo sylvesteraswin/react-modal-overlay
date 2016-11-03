@@ -8,13 +8,23 @@ const LogoTest = () => (
 
     <div
       className="mv2">
-      <Logo src="https://dl.dropboxusercontent.com/u/8725581/FE_logos/images.png" />
-      <Logo src="https://dl.dropboxusercontent.com/u/8725581/FE_logos/css3logo.png" />
-      <Logo src="https://dl.dropboxusercontent.com/u/8725581/FE_logos/logo_JavaScript.png" />
-      <Logo src="https://dl.dropboxusercontent.com/u/8725581/FE_logos/react-logo.png" />
-      <Logo src="https://dl.dropboxusercontent.com/u/8725581/FE_logos/12612655.png" />
-      <Logo src="https://dl.dropboxusercontent.com/u/8725581/FE_logos/nodejs.gif" />
-      <Logo src="https://dl.dropboxusercontent.com/u/8725581/FE_logos/webpack.png" />
+      <div className="cf">
+        <div className="fl w-100 w-20-ns tc pv5">
+          <Logo src="https://dl.dropboxusercontent.com/u/8725581/FE_logos/HTML5_logo_and_wordmark.svg.png" />
+        </div>
+        <div className="fl w-25 w-20-ns tc pv5">
+          <Logo src="https://dl.dropboxusercontent.com/u/8725581/FE_logos/css3logo.png" />
+        </div>
+        <div className="fl w-25 w-20-ns tc pv5">
+          <Logo src="https://dl.dropboxusercontent.com/u/8725581/FE_logos/logo_JavaScript.png" />
+        </div>
+        <div className="fl w-25 w-20-ns tc pv5">
+          <Logo src="https://dl.dropboxusercontent.com/u/8725581/FE_logos/logo_JavaScript.png" />
+        </div>
+        <div className="fl w-25 w-20-ns tc pv5">
+          <Logo src="https://dl.dropboxusercontent.com/u/8725581/FE_logos/nodejs.gif" />
+        </div>
+      </div>
     </div>
 
     <div

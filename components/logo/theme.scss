@@ -2,6 +2,6 @@
 @import "../globals";
 
 .logo {
-  display: inline-block;
   max-width: $unit * 14.3;
+  margin: 0 auto;
 }

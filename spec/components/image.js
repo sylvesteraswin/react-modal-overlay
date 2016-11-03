@@ -11,12 +11,13 @@ const ImageTest = () => (
     className="pa3 pa5-ns">
     <h5>Responsive Image</h5>
 
-    <p
+    <div
       className="mv2 tc">
       <Image
         srcSet={SRC_SET.join(',')}
+        aspectRatio="6x4"
         src="https://c4.staticflickr.com/2/1625/26256221835_060c07acc5_n.jpg" />
-    </p>
+    </div>
 
   </section>
 );
