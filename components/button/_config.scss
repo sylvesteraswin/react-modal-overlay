@@ -2,6 +2,10 @@ $button-primary-text-color: $color-white !default;
 $button-primary-color: $color-primary !default;
 $button-primary-color-hover: $color-primary-dark !default;
 
+$button-white-text-color: $color-white !default;
+$button-white-color: $color-white !default;
+$button-white-color-hover: $color-white !default;
+
 $button-tertiary-text-color: $color-tertiary !default;
 $button-tertiary-color: $color-tertiary !default;
 $button-tertiary-text-color-hover: $color-white !default;
@@ -10,14 +14,22 @@ $button-tertiary-color-hover: $color-tertiary !default;
 $button-inverse-color: $color-white !default;
 $button-inverse-color-hover: $color-tertiary-contrast !default;
 
-$button-disabled-text-color: rgba($color-black, 0.26) !default;
-$button-disabled-background-color: rgba($color-black, 0.12) !default;
+$button-disabled-text-color: rgba($color-tertiary, 0.26) !default;
+$button-disabled-background-color: rgba($color-tertiary, 0.12) !default;
 
-$button-height: $unit * 4.6 !default;
+$button-height: $unit * 4.2 !default;
+$icononly-width: $unit * 4.6 !default;
 $button-height-inline: $unit * 3 !default;
-$button-squared-min-width: 9 * $unit !default;
+$button-squared-min-width: 8.4 * $unit !default;
+$button-squared-max-width: 27 * $unit !default;
+$button-squared-padding: $unit * 1.2 !default;
 
-$button-squared-padding: 0 $unit * 1.2 !default;
+$button-rounded-padding: $unit * .6 $unit * 2 !default;
+$button-rounded-font-size: $unit !default;
+$button-rounded-min-width: 1.1 * $unit !default;
+$button-rounded-max-width: 17 * $unit !default;
+$button-rounded-height: $unit * 3 !default;
+
 $button-toggle-font-size: $unit * 2 !default;
 
 $button-floating-font-size: $unit * 2.4 !default;

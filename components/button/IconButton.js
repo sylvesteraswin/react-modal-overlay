@@ -34,7 +34,7 @@ const factory = (FontIcon) => {
         primary: PropTypes.string,
         secondary: PropTypes.string,
         tertiary: PropTypes.string,
-        toggle: PropTypes.string
+        icononly: PropTypes.string
       }),
       type: PropTypes.string,
     };
@@ -99,7 +99,7 @@ const factory = (FontIcon) => {
       const element = href ? 'a' : 'button';
 
 
-      const classes = classnames(theme.toggle, {
+      const classes = classnames(theme.icononly, {
         [theme.floating]: floating,
         [theme.tertiary]: tertiary && !secondary && !primary,
         [theme.secondary]: secondary,

@@ -55,10 +55,8 @@ class DrawerTest extends React.Component {
 
         <div
           className="mv2">
-          <article
-            className="cf">
-            <div
-              className="fl w-50 tc ph3">
+          <div className="cf">
+            <div className="fl w-100 w-20-l tc pa2">
               <Button
                   secondary
                   onClick={this.handleToggleLeft}
@@ -67,8 +65,7 @@ class DrawerTest extends React.Component {
                   length={16}
                   label="Left Drawer" />
             </div>
-            <div
-              className="fl w-50 tc ph3">
+            <div className="fl w-100 w-20-l tc pa2">
               <Button
                   onClick={this.handleToggleRight}
                   icon="star"
@@ -76,15 +73,7 @@ class DrawerTest extends React.Component {
                   length={16}
                   label="Right Drawer" />
             </div>
-          </article>
-        </div>
-
-        <div
-          className="mv2">
-          <article
-            className="cf">
-            <div
-              className="fl w-50 tc ph3">
+            <div className="fl w-100 w-20-l tc pa2">
               <Button
                   primary
                   onClick={this.handleToggleTop}
@@ -93,8 +82,7 @@ class DrawerTest extends React.Component {
                   length={16}
                   label="Top Drawer" />
             </div>
-            <div
-              className="fl w-50 tc ph3">
+            <div className="fl w-100 w-20-l tc pa2">
               <Button
                   inverse
                   onClick={this.handleToggleBottom}
@@ -103,7 +91,7 @@ class DrawerTest extends React.Component {
                   length={16}
                   label="Bottom Drawer" />
             </div>
-          </article>
+          </div>
         </div>
       </section>
     );

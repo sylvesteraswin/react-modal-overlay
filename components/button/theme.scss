@@ -32,7 +32,6 @@
   cursor: pointer;
   border-style:solid;
   border-width:2px;
-  font-weight:600;
   border-color: transparent;
   z-index: 0;
   background-color: transparent;
@@ -86,6 +85,7 @@
 
 %squared {
   min-width: $button-squared-min-width;
+  max-width: $button-squared-max-width;
   table-layout:fixed;
   width:100%;
   padding: $button-squared-padding;
@@ -111,7 +111,20 @@
   @extend %squared;
 }
 
-.toggle,
+.rounded {
+    border-radius: 100px;
+    padding: $button-rounded-padding;
+    min-width: $button-rounded-min-width;
+    max-width: $button-rounded-max-width;
+    font-size: $button-rounded-font-size;
+    width: auto;
+    min-height: $button-rounded-height;
+    &:before {
+      display: none;
+    }
+}
+
+.icononly,
 .floating {
   @extend %button;
   display: inline-block;
@@ -132,10 +145,9 @@
   }
 }
 
-.toggle {
-  width: $button-height;
+.icononly {
+  width: $icononly-width;
   background-color: transparent;
-  border: none;
   > .icon, svg {
     font-size: $button-toggle-font-size;
     line-height: $button-height;
@@ -162,17 +174,6 @@
   font-size: $unit;
 }
 
-.tertiary {
-  color: $button-tertiary-text-color;
-  border-color: $button-tertiary-color;
-  &:before {
-    background-color: $button-tertiary-color-hover;
-  }
-  &:hover {
-    color: $button-tertiary-text-color-hover;
-  }
-}
-
 .primary {
   color: $button-primary-text-color;
   border-color: $button-primary-color;
@@ -195,6 +196,47 @@
   &:before {
     background-color: $button-primary-color-hover;
   }
+  &.rounded {
+    &:hover {
+      color: $button-tertiary-text-color;
+      box-shadow: inset 0 0 0px 1px $button-primary-color;
+    }
+  }
+}
+
+.tertiary {
+  color: $button-tertiary-text-color;
+  border-color: $button-tertiary-color;
+  &:before {
+    background-color: $button-tertiary-color-hover;
+  }
+  &:hover {
+    color: $button-tertiary-text-color-hover;
+  }
+  &.rounded {
+    &:hover {
+      color: $button-tertiary-text-color;
+      box-shadow: inset 0 0 0px 1px $button-tertiary-color;
+    }
+  }
+}
+
+.white {
+  color: $button-white-text-color;
+  border-color: $button-white-color;
+  &:hover {
+    color: $button-tertiary-color;
+    border-color: $button-white-color;
+  }
+  &:before {
+    background-color: $button-white-color-hover;
+  }
+  &.rounded {
+    &:hover {
+      color: $button-white-text-color;
+      box-shadow: inset 0 0 0px 1px $button-white-color;
+    }
+  }
 }
 
 .inverse {
@@ -206,5 +248,10 @@
   }
   &:before {
     background-color: $button-inverse-color-hover;
+  }
+  &.rounded {
+    &:hover {
+      color: $button-inverse-color;
+    }
   }
 }
