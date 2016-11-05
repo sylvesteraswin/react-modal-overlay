@@ -2,6 +2,7 @@
 $palatte-black: #1A1A1A;
 $palatte-orange: #FF6900;
 $palatte-orange-dark: #E75915;
+$palette-orange-light: rgba(255, 238, 214, 1);
 $palatte-red-flag: #CE3535;
 $palatte-green-flag: #5AA180;
 $palatte-blue-flag: #6D98B5;
@@ -21,12 +22,11 @@ $palatte-white: #FFFFFF;
 
 $palette-light-black: #1a1a1a;
 
-$palette-deep-orange-light: rgba(255, 238, 214, 1);
 $palette-deep-orange: $palatte-orange;
+$palette-deep-orange-light: rgba(255, 238, 214, 1);
 $palette-deep-orange-contrast: $palatte-orange-dark;
 
 $palette-deep-black: $palatte-darker-grey;
 $palette-deep-black-contrast: $palatte-light-grey;
 
-$color-black: $palatte-black;
-$color-white: $palatte-white;
+$palatte-white: $palatte-white;

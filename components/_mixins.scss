@@ -209,11 +209,11 @@
 
 @mixin typo-button($color-contrast: false, $use-preferred: true) {
   @include typo-preferred-font($use-preferred);
-  font-size: $unit * 1.4;
-  line-height: 1.5;
+  font-size: $unit * 1.2;
+  line-height: 1;
   text-transform: uppercase;
-  letter-spacing: 0;
-
+  letter-spacing: $unit * 0.05;
+  font-weight:600;
   @if $color-contrast {
     opacity: .87;
   }

@@ -4,75 +4,116 @@ import {
   IconButton,
 } from '../../components/button';
 
+import style from '../style';
+
 const ButtonTest = () => (
   <section
     className="pa3 pa5-ns">
     <h5>Buttons</h5>
 
-    <h6>Link & Buttons</h6>
-    <p
-      className="mv2">
-      <Button
-          primary
-          href="http://www.google.com"
-          label="Primary Link" />
-    </p>
+    <h6>Link & Buttons on White</h6>
 
-    <p
-      className="mv2">
-      <Button
-          primary
-          icon="favorite_border"
-          label="Primary Button" />
-    </p>
+      <div
+        className="mv2 pa4">
+        <div className="cf">
+          <div className="fl w-100 w-20-l tc pa2">
+            <Button
+                primary
+                href="http://www.google.com"
+                label="Primary Link" />
+          </div>
+          <div className="fl w-100 w-20-l tc pa2">
+            <Button
+                secondary
+                icon="favorite_border"
+                label="Secondary Button" />
+          </div>
+          <div className="fl w-100 w-20-l tc pa2">
+            <Button
+                href="http://www.google.com"
+                label="Tertiary Link" />
+          </div>
+        </div>
+      </div>
 
-    <p
-      className="mv2">
-      <Button
-          secondary
-          href="http://www.google.com"
-          label="Secondary Link" />
-    </p>
+      <h6>Link & Buttons on Color</h6>
 
-    <p
-      className="mv2">
-      <Button
-          secondary
-          icon="create"
-          label="Secondary Button" />
-    </p>
+      <div
+        className={`mv4 pa4 ${style.orangeBg}`}>
+        <div className="cf">
+          <div className="fl w-100 w-20-l tc pa2">
+            <Button
+                inverse
+                icon="bookmark"
+                label="Primary Button" />
+          </div>
+          <div className="fl w-100 w-20-l tc pa2">
+            <Button
+                white
+                icon="bookmark"
+                label="Secondary Button" />
+          </div>
+          <div className="fl w-100 w-20-l tc pa2">
+            <Button
+                href="http://www.google.com"
+                label="Tertiary Link" />
+          </div>
+        </div>
+      </div>
 
-    <p
-      className="mv2">
-      <Button
-          href="http://www.google.com"
-          label="Tertiary Link" />
-    </p>
+      <h6>Link & Buttons on Black</h6>
 
-    <p
-      className="mv2">
-      <Button
-          icon="add_shopping_cart"
-          label="Tertiary Button" />
-    </p>
+      <div
+        className={`mv4 pa4 ${style.blackBg}`}>
+        <div className="cf">
+          <div className="fl w-100 w-20-l tc pa2">
+            <Button
+                primary
+                href="http://www.google.com"
+                label="Primary Link" />
+          </div>
+          <div className="fl w-100 w-20-l tc pa2">
+            <Button
+                secondary
+                icon="favorite_border"
+                label="Secondary Button" />
+          </div>
+          <div className="fl w-100 w-20-l tc pa2">
+            <Button
+              white
+                href="http://www.google.com"
+                label="Tertiary Link" />
+          </div>
+        </div>
+      </div>
 
-    <p
-      className="mv2">
-      <Button
-          inverse
-          href="http://www.google.com"
-          label="Inverse Link" />
-    </p>
+      <h6>Link & Buttons on Blue</h6>
 
-    <p
-      className="mv2">
-      <Button
-          inverse
-          icon="bookmark"
-          label="Inverse Button" />
-    </p>
+      <div
+        className={`mv4 pa4 ${style.blueBg}`}>
+        <div className="cf">
+          <div className="fl w-100 w-20-l tc pa2">
+            <Button
+                primary
+                href="http://www.google.com"
+                label="Primary Link" />
+          </div>
+          <div className="fl w-100 w-20-l tc pa2">
+            <Button
+                white
+                icon="favorite_border"
+                label="Secondary Button" />
+          </div>
+          <div className="fl w-100 w-20-l tc pa2">
+            <Button
+                href="http://www.google.com"
+                label="Tertiary Link" />
+          </div>
+        </div>
+      </div>
 
-    <h6>Icon Buttons</h6>
+
+    <h6>Follow Compact</h6>
     <p
       className="mv3 tc">
       <IconButton className="mr2" icon='favorite' primary />
@@ -81,6 +122,39 @@ const ButtonTest = () => (
       <IconButton className="mr2" icon='favorite' inverse />
       <IconButton className="mr2" icon='favorite' disabled />
     </p>
+
+    <h6>Follow CTA</h6>
+      <div
+        className="mv4 pa4">
+        <div className="cf">
+          <div className="fl w-100 w-20-l tc pa2">
+            <Button
+                rounded
+                icon="add"
+                label="Follow" />
+          </div>
+          <div className="fl w-100 w-20-l tc pa2">
+            <Button
+                rounded
+                secondary
+                icon="check"
+                label="Following" />
+          </div>
+          <div className="fl w-100 w-20-l tc pa2">
+            <Button
+                rounded
+                icon="add"
+                label="Follow Brand" />
+          </div>
+          <div className="fl w-100 w-20-l tc pa2">
+            <Button
+                rounded
+                secondary
+                icon="check"
+                label="Following" />
+          </div>
+        </div>
+      </div>
 
     <h6>Floating Buttons</h6>
     <p
